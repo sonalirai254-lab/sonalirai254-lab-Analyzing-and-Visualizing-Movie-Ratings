@@ -195,6 +195,72 @@ def plot_top_movies(df: pd.DataFrame):
 
 
 # ---------------------------------------------------------------------------
+# PDF report generation
+# ---------------------------------------------------------------------------
+def build_pdf_report(df: pd.DataFrame) -> bytes:
+    """Render the dashboard (key insights + charts) as a multi-page PDF."""
+    buf = io.BytesIO()
+
+    # Pre-compute insights
+    total = len(df)
+    avg_rating = df["Rating"].mean()
+    highest = df.loc[df["Rating"].idxmax()]
+    lowest = df.loc[df["Rating"].idxmin()]
+    exploded = explode_genres(df)
+    pop_genre = exploded["Genre"].value_counts().idxmax()
+    genre_stats = exploded.groupby("Genre")["Rating"].agg(["mean", "count"])
+    genre_stats = genre_stats[genre_stats["count"] >= max(3, int(0.01 * len(df)))]
+    best_genre = genre_stats["mean"].idxmax() if not genre_stats.empty else "N/A"
+    worst_genre = genre_stats["mean"].idxmin() if not genre_stats.empty else "N/A"
+    exceptional = (df["Rating"] >= 8.5).sum()
+    year_span = f"{int(df['Year'].min())} – {int(df['Year'].max())}"
+
+    with PdfPages(buf) as pdf:
+        # Cover / insights page
+        fig, ax = plt.subplots(figsize=(8.5, 11))
+        ax.axis("off")
+        ax.text(0.5, 0.95, "🎬 Movie Rating Analysis Report",
+                ha="center", va="top", fontsize=22, fontweight="bold")
+        ax.text(0.5, 0.91, f"Generated on {datetime.now().strftime('%B %d, %Y %H:%M')}",
+                ha="center", va="top", fontsize=10, color="gray")
+
+        lines = [
+            ("Total Movies", f"{total:,}"),
+            ("Year Range", year_span),
+            ("Average Rating", f"{avg_rating:.2f}"),
+            ("Most Popular Genre", str(pop_genre)),
+            ("Best-Performing Genre", str(best_genre)),
+            ("Lowest-Performing Genre", str(worst_genre)),
+            ("Highest Rated Movie", f"{highest['Movie_Name']} ({highest['Rating']:.1f})"),
+            ("Lowest Rated Movie", f"{lowest['Movie_Name']} ({lowest['Rating']:.1f})"),
+            ("Exceptional Movies (≥ 8.5)", f"{exceptional}"),
+        ]
+        y = 0.82
+        ax.text(0.08, y, "Key Insights", fontsize=15, fontweight="bold")
+        y -= 0.04
+        for label, value in lines:
+            ax.text(0.08, y, f"{label}:", fontsize=11, fontweight="bold")
+            ax.text(0.50, y, str(value), fontsize=11)
+            y -= 0.035
+        pdf.savefig(fig, bbox_inches="tight")
+        plt.close(fig)
+
+        # Chart pages
+        for plot_fn in (plot_rating_histogram, plot_top_movies,
+                        plot_genre_avg_rating, plot_rating_pie, plot_year_trend):
+            fig = plot_fn(df)
+            pdf.savefig(fig, bbox_inches="tight")
+            plt.close(fig)
+
+        meta = pdf.infodict()
+        meta["Title"] = "Movie Rating Analysis Report"
+        meta["Author"] = "Movie Rating Analysis Dashboard"
+        meta["CreationDate"] = datetime.now()
+
+    return buf.getvalue()
+
+
+# ---------------------------------------------------------------------------
 # Sidebar — upload & filters
 # ---------------------------------------------------------------------------
 st.sidebar.title("🎬 Movie Analysis")
