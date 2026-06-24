@@ -360,6 +360,24 @@ if page == "Dashboard":
                             f"{lowest['Movie_Name']} ({lowest['Rating']:.1f})"),
                 unsafe_allow_html=True)
 
+    # PDF report download
+    st.markdown("")
+    dl_col1, dl_col2 = st.columns([1, 3])
+    with dl_col1:
+        try:
+            pdf_bytes = build_pdf_report(fdf)
+            st.download_button(
+                "📄 Download PDF Report",
+                data=pdf_bytes,
+                file_name=f"movie_rating_report_{datetime.now().strftime('%Y%m%d_%H%M')}.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+            )
+        except Exception as exc:
+            st.error(f"Could not generate PDF: {exc}")
+    with dl_col2:
+        st.caption("Exports the current filtered dashboard — key insights and all charts — as a multi-page PDF.")
+
     section("Quick Look")
     col1, col2 = st.columns(2)
     with col1:
