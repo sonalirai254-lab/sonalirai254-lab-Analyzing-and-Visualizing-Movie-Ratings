@@ -1,0 +1,36 @@
+Movie_Name,Genre,Year,Rating,Votes,Runtime,Revenue,Director
+The Shawshank Redemption,"Drama",1994,9.3,2500000,142,28.34,Frank Darabont
+The Godfather,"Crime, Drama",1972,9.2,1800000,175,134.97,Francis Ford Coppola
+The Dark Knight,"Action, Crime, Drama",2008,9.0,2700000,152,534.86,Christopher Nolan
+Pulp Fiction,"Crime, Drama",1994,8.9,2100000,154,107.93,Quentin Tarantino
+Schindler's List,"Biography, Drama, History",1993,8.9,1400000,195,96.90,Steven Spielberg
+Inception,"Action, Adventure, Sci-Fi",2010,8.8,2400000,148,292.58,Christopher Nolan
+Fight Club,"Drama",1999,8.8,2200000,139,37.03,David Fincher
+Forrest Gump,"Drama, Romance",1994,8.8,2100000,142,330.25,Robert Zemeckis
+The Matrix,"Action, Sci-Fi",1999,8.7,1900000,136,171.48,Lana Wachowski
+Goodfellas,"Biography, Crime, Drama",1990,8.7,1200000,146,46.84,Martin Scorsese
+Interstellar,"Adventure, Drama, Sci-Fi",2014,8.7,1900000,169,188.02,Christopher Nolan
+The Lord of the Rings: The Return of the King,"Action, Adventure, Drama",2003,9.0,1900000,201,377.85,Peter Jackson
+The Lord of the Rings: The Fellowship of the Ring,"Action, Adventure, Drama",2001,8.8,1900000,178,315.54,Peter Jackson
+Se7en,"Crime, Drama, Mystery",1995,8.6,1700000,127,100.13,David Fincher
+The Silence of the Lambs,"Crime, Drama, Thriller",1991,8.6,1500000,118,130.74,Jonathan Demme
+Gladiator,"Action, Adventure, Drama",2000,8.5,1500000,155,187.71,Ridley Scott
+The Departed,"Crime, Drama, Thriller",2006,8.5,1400000,151,132.38,Martin Scorsese
+The Prestige,"Drama, Mystery, Sci-Fi",2006,8.5,1400000,130,53.09,Christopher Nolan
+Whiplash,"Drama, Music",2014,8.5,900000,106,13.09,Damien Chazelle
+The Lion King,"Animation, Adventure, Drama",1994,8.5,1100000,88,422.78,Roger Allers
+Saving Private Ryan,"Drama, War",1998,8.6,1400000,169,217.05,Steven Spielberg
+Avengers: Endgame,"Action, Adventure, Drama",2019,8.4,1100000,181,858.37,Anthony Russo
+Joker,"Crime, Drama, Thriller",2019,8.4,1300000,122,335.45,Todd Phillips
+Parasite,"Drama, Thriller",2019,8.5,800000,132,53.37,Bong Joon Ho
+1917,"Drama, War",2019,8.2,600000,119,159.23,Sam Mendes
+Spider-Man: Into the Spider-Verse,"Animation, Action, Adventure",2018,8.4,500000,117,190.24,Bob Persichetti
+Dune,"Action, Adventure, Drama",2021,8.0,700000,155,108.32,Denis Villeneuve
+Everything Everywhere All at Once,"Action, Adventure, Comedy",2022,7.9,500000,139,77.19,Daniel Kwan
+Oppenheimer,"Biography, Drama, History",2023,8.4,700000,180,329.86,Christopher Nolan
+Barbie,"Adventure, Comedy, Fantasy",2023,7.0,500000,114,636.23,Greta Gerwig
+The Batman,"Action, Crime, Drama",2022,7.8,700000,176,369.34,Matt Reeves
+Top Gun: Maverick,"Action, Drama",2022,8.3,600000,130,718.73,Joseph Kosinski
+Cats,"Comedy, Fantasy, Musical",2019,2.8,80000,110,75.49,Tom Hooper
+The Room,"Drama",2003,3.7,110000,99,0.01,Tommy Wiseau
+Movie 43,"Comedy",2013,4.3,100000,94,32.43,Various
