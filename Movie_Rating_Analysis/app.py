@@ -11,12 +11,14 @@ from __future__ import annotations
 
 import io
 from typing import Optional
+from datetime import datetime
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+from matplotlib.backends.backend_pdf import PdfPages
 
 # ---------------------------------------------------------------------------
 # Page configuration & global styling
