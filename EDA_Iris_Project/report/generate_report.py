@@ -154,7 +154,7 @@ def build() -> Path:
         "The analysis follows a standard EDA pipeline implemented in Python:\n"
         "  1. Load the CSV using Pandas.\n"
         "  2. Inspect shape, dtypes, missing values and duplicates.\n"
-        "  3. Clean — remove duplicates, coerce dtypes, drop NaNs.\n"
+        "  3. Clean - remove duplicates, coerce dtypes, drop NaNs.\n"
         "  4. Compute descriptive statistics and class balance.\n"
         "  5. Compute pairwise correlations.\n"
         "  6. Detect outliers with the IQR rule.\n"
@@ -179,7 +179,7 @@ def build() -> Path:
     pdf.image_centered(IMAGES / "heatmap_correlation.png", w=130)
     pdf.body(
         "Petal length and petal width are very strongly correlated (~0.96). "
-        "Sepal width is weakly — and slightly negatively — correlated with the "
+        "Sepal width is weakly - and slightly negatively - correlated with the "
         "petal dimensions, suggesting it carries somewhat independent information."
     )
 
@@ -216,7 +216,7 @@ def build() -> Path:
     pdf.image_centered(IMAGES / "scatter_sepal_petal.png", w=180)
     pdf.body(
         "Petal-space scatter reveals three distinct clusters, while sepal-space "
-        "scatter mixes versicolor and virginica — quantitative confirmation that "
+        "scatter mixes versicolor and virginica - quantitative confirmation that "
         "petal measurements are the dominant discriminators."
     )
 
@@ -236,7 +236,7 @@ def build() -> Path:
         "The Iris dataset, despite its small size, is an excellent teaching dataset. "
         "EDA alone is sufficient to suggest that a simple classifier using petal "
         "length and petal width could achieve very high accuracy. This makes Iris "
-        "an ideal next step for supervised classification — logistic regression, "
+        "an ideal next step for supervised classification - logistic regression, "
         "KNN or decision trees would all be appropriate follow-up models."
     )
 
